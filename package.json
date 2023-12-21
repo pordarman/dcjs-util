@@ -1,0 +1,27 @@
+{
+  "name": "dcjs-util",
+  "version": "0.0.1",
+  "description": "Contains necessary shortcuts for discord.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "discord",
+    "discordutil",
+    "djs",
+    "djsutil",
+    "discordjs",
+    "discordjsutil",
+    "djshelper",
+    "djshelpers",
+    "discordhelper",
+    "djs-helper"
+  ],
+  "author": "Fearless Crazy",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "fs": "^0.0.1-security"
+  }
+}
