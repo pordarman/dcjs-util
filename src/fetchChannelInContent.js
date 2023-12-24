@@ -8,7 +8,7 @@ const fetchChannel = require("./fetchChannel.js");
  * Retrieves a channel from the text entered
  * @param {Client} client - Discord Client
  * @param {String} content - The content to fetch channel
- * @returns {Promise<GuildChannel>|null}
+ * @returns {Promise<GuildChannel|null>}
  */
 module.exports = function fetchChannelInContent(client, content) {
 

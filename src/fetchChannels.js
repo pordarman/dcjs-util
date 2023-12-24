@@ -9,16 +9,16 @@ const getGuildChannels = require("./getGuildChannels.js");
  * Fetch discord channels
  * @param {Guild} guild - The guild to fetch channels
  * @param {Array<String>} channelIds - The channel IDs to fetch
- * @returns {Promise<Collection<String,GuildChannel|null>>}
+ * @returns {Collection<String,GuildChannel|null>}
  */
-module.exports = async function fetchChannels(guild, channelIds) {
+module.exports = function fetchChannels(guild, channelIds) {
 
     // Check the accuracy of the value in the entered parameters
     if (!(guild instanceof Guild)) throw new TypeError("The entered \"guild\" value must be a Guild value!");
     if (!Array.isArray(channelIds)) throw new TypeError("The entered \"channelIds\" value must be a Array value!");
 
     const channels = new Collection();
-    const guildChannels = await getGuildChannels(guild);
+    const guildChannels = getGuildChannels(guild);
 
     for (let index = 0; index < channelIds.length; index++) {
         const channelId = channelIds[index];

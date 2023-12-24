@@ -9,7 +9,7 @@ const fetchAllMembers = require("./fetchAllMembers.js");
  * Fetch discord members in content
  * @param {Guild} guild - The guild to fetch members
  * @param {String} content - The content to fetch members
- * @returns {Promise<Collection<String,GuildMember|null>>}
+ * @returns {Promise<Collection<String,GuildMember>>}
  */
 module.exports = async function fetchMembersInContent(guild, content) {
 
@@ -18,17 +18,17 @@ module.exports = async function fetchMembersInContent(guild, content) {
     if (typeof content !== "string") throw new TypeError("The entered \"content\" value must be a String value!");
 
     // Fetch member IDs from content
-    const content = content.match(/\d{17,20}/g);
+    const memberIds = content.match(/\d{17,20}/g);
 
     const members = new Collection();
 
     // If there is no member ID in the content, return the empty collection
-    if (!content) return members;
+    if (!memberIds) return members;
 
     const guildMembers = await fetchAllMembers(guild);
 
-    for (let index = 0; index < content.length; index++) {
-        const memberId = content[index];
+    for (let index = 0; index < memberIds.length; index++) {
+        const memberId = memberIds[index];
         const member = guildMembers.get(memberId);
 
         if (member) members.set(memberId, member);

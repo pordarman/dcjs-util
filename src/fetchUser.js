@@ -7,7 +7,7 @@ const {
  * Fetch discord user
  * @param {Client} client - Discord Client
  * @param {String} userId - The user ID to fetch
- * @returns {Promise<User>|null}
+ * @returns {Promise<User|null>}
  */
 module.exports = async function fetchUser(client, userId) {
 

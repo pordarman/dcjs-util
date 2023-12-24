@@ -8,7 +8,7 @@ const fetchMember = require("./fetchMember.js");
  * Retrieves a member from the text entered
  * @param {Guild} guild - The guild to fetch member
  * @param {String} content - The content to fetch member
- * @returns {Promise<GuildMember>|null}
+ * @returns {Promise<GuildMember|null>}
  */
 module.exports = function fetchMemberInContent(guild, content) {
 

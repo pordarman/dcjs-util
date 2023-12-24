@@ -8,7 +8,7 @@ const fetchRole = require("./fetchRole.js");
  * Retrieves a role from the text entered
  * @param {Guild} guild - The guild to fetch role
  * @param {String} content - The content to fetch role
- * @returns {Promise<Role>|null}
+ * @returns {Role|null}
  */
 module.exports = function fetchRoleInContent(guild, content) {
 

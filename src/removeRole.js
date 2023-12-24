@@ -2,6 +2,7 @@ const {
     GuildMember,
     Role
 } = require("discord.js");
+const removeRoles = require("./removeRoles");
 
 /**
  * Remove a role to the member
@@ -10,6 +11,9 @@ const {
  * @returns {Promise<GuildMember>}
  */
 module.exports = function removeRole(member, role) {
+
+    // If role is Array or Collection, call another function
+    if (role instanceof Array || role instanceof Collection) return removeRoles(member, role);
 
     // Check the accuracy of the value in the entered parameters
     if (!(member instanceof GuildMember)) throw new TypeError("The entered \"member\" value must be a GuildMember value!");

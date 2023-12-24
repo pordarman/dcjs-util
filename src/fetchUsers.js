@@ -3,13 +3,12 @@ const {
     Client,
     Collection
 } = require("discord.js");
-const fetchAllMembers = require("./fetchAllMembers.js");
 
 /**
  * Fetch discord users
  * @param {Client} client - Discord Client
  * @param {Array<String>} userIds - The user IDs to fetch
- * @returns {Promise<Collection<String,User|null>>}
+ * @returns {Promise<Collection<String,User>>}
  */
 module.exports = async function fetchUsers(client, userIds) {
 

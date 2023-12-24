@@ -9,7 +9,7 @@ const fetchAllMembers = require("./fetchAllMembers.js");
  * Fetch discord members
  * @param {Guild} guild - The guild to fetch members
  * @param {Array<String>} memberIds - The member IDs to fetch
- * @returns {Promise<Collection<String,GuildMember|null>>}
+ * @returns {Promise<Collection<String,GuildMember>>}
  */
 module.exports = async function fetchMembers(guild, memberIds) {
 

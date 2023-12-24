@@ -8,7 +8,7 @@ const {
  * Fetch discord users in content
  * @param {Client} client - Discord Client
  * @param {String} content - The content to fetch users
- * @returns {Promise<Collection<String,User|null>>}
+ * @returns {Promise<Collection<String,User>>}
  */
 module.exports = async function fetchUsersInContent(client, content) {
 
@@ -17,12 +17,12 @@ module.exports = async function fetchUsersInContent(client, content) {
     if (typeof content !== "string") throw new TypeError("The entered \"content\" value must be a String value!");
 
     // Fetch user IDs from content
-    const content = content.match(/\d{17,20}/g);
+    const userIds = content.match(/\d{17,20}/g);
 
     const users = new Collection();
 
     // If there is no user ID in the content, return the empty collection
-    if (!content) return users;
+    if (!userIds) return users;
 
     // Fetch discord user without check
     async function fetchUser(userId) {
@@ -46,8 +46,8 @@ module.exports = async function fetchUsersInContent(client, content) {
         return client.users.cache.get(userId) || await client.users.fetch(userId).catch(() => { }) || null;
     }
 
-    for (let index = 0; index < content.length; index++) {
-        const userId = content[index];
+    for (let index = 0; index < userIds.length; index++) {
+        const userId = userIds[index];
         const user = await fetchUser(userId);
 
         if (user) users.set(userId, user);

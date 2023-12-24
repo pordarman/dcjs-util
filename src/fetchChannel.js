@@ -7,7 +7,7 @@ const {
  * Fetch discord channel
  * @param {Client} client - Discord Client
  * @param {String} channelId - The channel ID to fetch
- * @returns {Promise<GuildChannel>|null}
+ * @returns {Promise<GuildChannel|null>}
  */
 module.exports = async function fetchChannel(client, channelId) {
 

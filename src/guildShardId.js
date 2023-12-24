@@ -1,5 +1,3 @@
-
-
 /**
  * Returns the shard ID of the server
  * @param {String} guildId - Guild Id
@@ -7,7 +5,7 @@
  * @returns {Boolean}
  */
 module.exports = function shardId(guildId, shardCount = 1) {
-    
+
     // Check the accuracy of the value in the entered parameters
     if (typeof guildId !== "string") throw new TypeError("\"guildId\" must be a string!");
     if (!/\d{17,20}/.test(guildId)) throw new TypeError("\"guildId\" must be a valid guild ID!");

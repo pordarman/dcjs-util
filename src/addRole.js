@@ -1,7 +1,9 @@
 const {
     GuildMember,
-    Role
+    Role,
+    Collection
 } = require("discord.js");
+const addRoles = require("./addRoles");
 
 /**
  * Add a role to the member
@@ -10,6 +12,9 @@ const {
  * @returns {Promise<GuildMember>}
  */
 module.exports = function addRole(member, role) {
+
+    // If role is Array or Collection, call another function
+    if (role instanceof Array || role instanceof Collection) return addRoles(member, role);
 
     // Check the accuracy of the value in the entered parameters
     if (!(member instanceof GuildMember)) throw new TypeError("The entered \"member\" value must be a GuildMember value!");

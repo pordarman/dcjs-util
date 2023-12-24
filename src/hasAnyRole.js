@@ -17,15 +17,15 @@ module.exports = function hasAnyRole(member, roles) {
     if (!(roles instanceof Collection || Array.isArray(roles))) throw new TypeError("The entered \"roles\" value must be a Collection or Array value!");
 
     const addedRoles = [];
-       
+
     if (roles instanceof Collection) {
-         for (const [roleId, role] of roles.entries()) {
+        for (const [roleId, role] of roles.entries()) {
 
             // Check if the role is a valid role
             if (!(role instanceof Role)) throw new TypeError("The entered \"roles\" value must be a Collection of Role values!");
 
             addedRoles.push(roleId);
-         }
+        }
     } else {
         for (let index = 0; index < roles.length; index++) {
             const roleId = roles[index];

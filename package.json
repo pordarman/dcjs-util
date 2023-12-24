@@ -1,6 +1,6 @@
 {
   "name": "dcjs-util",
-  "version": "0.0.1",
+  "version": "0.3.8",
   "description": "Contains necessary shortcuts for discord.js",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,6 @@
   "author": "Fearless Crazy",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.14.1",
-    "fs": "^0.0.1-security"
+    "dcjs-util": "^0.3.7"
   }
 }
