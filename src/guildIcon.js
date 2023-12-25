@@ -16,5 +16,5 @@ module.exports =  function guildIcon(guild) {
     if (!guild.icon) return null;
 
     // If the guild has a gif icon, return the gif icon
-    return guild.icon.startsWith("a_") ? guild.iconURL({ format: "gif", dynamic: true, size: 4096 }) : guild.iconURL({ format: "png", dynamic: true, size: 4096 });
+    return guild.icon.startsWith("a_") ? guild.iconURL({ extension:"gif", forceStatic:true, size: 4096 }) : guild.iconURL({ extension:"png", forceStatic:true, size: 4096 });
 }

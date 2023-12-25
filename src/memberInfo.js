@@ -10,6 +10,7 @@ const userBanner = require('./userBanner');
  * @typedef {Object} GuildMemberInfo
  * @property {String} id - The ID of the member
  * @property {User} user - The user of the member
+ * @property {Number} createdTimestamp - The timestamp the user was created at
  * @property {String} nickname - The nickname of the member
  * @property {String} displayName - The display name of the member
  * @property {String} guildAvatarURL - The URL of the member's avatar in the guild
@@ -45,6 +46,7 @@ module.exports = async function memberInfo(member) {
     const memberInfoObject = {
         id: member.id, // The ID of the member
         user: member.user, // The user of the member
+        createdTimestamp: member.user.createdTimestamp, // The timestamp the user was created at
         nickname: member.nickname, // The nickname of the member
         displayName: member.displayName, // The display name of the member
         guildAvatarURL: memberAvatar(member), // The URL of the member's avatar in the guild

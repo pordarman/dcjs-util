@@ -16,5 +16,5 @@ module.exports =  function userBanner(user) {
     if (!user.banner) return null;
 
     // If the user has a gif banner, return the gif banner
-    return user.banner.startsWith("a_") ? user.bannerURL({ format: "gif", dynamic: true, size: 4096 }) : user.bannerURL({ format: "png", dynamic: true, size: 4096 });
+    return user.banner.startsWith("a_") ? user.bannerURL({ extension:"gif", forceStatic:true, size: 4096 }) : user.bannerURL({ extension:"png", forceStatic:true, size: 4096 });
 }

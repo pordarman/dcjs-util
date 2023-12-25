@@ -45,6 +45,7 @@ const guildDiscoverySplash = require("./guildDiscoverySplash");
  * @property {Collection<String,GuildEmoji>} animatedEmojis - Guild animated emojis
  * @property {Collection<String,GuildEmoji>} staticEmojis - Guild static emojis
  * @property {Collection<String,Role>} roles - All guild roles
+ * @property {Collection<String,Role>} rolesWithoutEveryone - All guild roles without @everyone role
  * @property {Role} highestRole - Guild highest role
  * @property {Collection<String,GuildChannel>} channels - Guild channels
  * @property {Collection<String,GuildChannel>} textChannels - Guild text channels
@@ -101,6 +102,7 @@ module.exports = async function guildInfo(guild) {
     });
 
     const allRoles = getRoles(guild);
+    const allRolesWithoutEveryone = allRoles.clone().delete(guild.id);
     const allChannels = getGuildChannels(guild);
 
     const highestRoleObject = {
@@ -189,6 +191,7 @@ module.exports = async function guildInfo(guild) {
         animatedEmojis: animatedEmojis, // Guild animated emojis 
         staticEmojis: staticEmojis, // Guild static emojis
         roles: allRoles, // All guild roles
+        rolesWithoutEveryone: allRolesWithoutEveryone, // All guild roles without @everyone
         highestRole: highestRoleObject.role, // Guild highest role
         channels: allChannels, // Guild channels
         textChannels: channelCollections.text, // Guild text channels

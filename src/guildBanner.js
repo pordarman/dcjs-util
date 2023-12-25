@@ -16,5 +16,5 @@ module.exports =  function guildBanner(guild) {
     if (!guild.banner) return null;
 
     // If the guild has a gif banner, return the gif banner
-    return guild.banner.startsWith("a_") ? guild.bannerURL({ format: "gif", dynamic: true, size: 4096 }) : guild.bannerURL({ format: "png", dynamic: true, size: 4096 });
+    return guild.banner.startsWith("a_") ? guild.bannerURL({ extension:"gif", forceStatic:true, size: 4096 }) : guild.bannerURL({ extension:"png", forceStatic:true, size: 4096 });
 }

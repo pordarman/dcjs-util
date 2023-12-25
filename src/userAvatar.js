@@ -16,5 +16,5 @@ module.exports =  function userAvatar(user) {
     if (!user.avatar) return null;
 
     // If the user has a gif avatar, return the gif avatar
-    return user.avatar.startsWith("a_") ? user.avatarURL({ format: "gif", dynamic: true, size: 4096 }) : user.avatarURL({ format: "png", dynamic: true, size: 4096 });
+    return user.avatar.startsWith("a_") ? user.avatarURL({ extension:"gif", forceStatic:true, size: 4096 }) : user.avatarURL({ extension:"png", forceStatic:true, size: 4096 });
 }

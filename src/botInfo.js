@@ -65,7 +65,7 @@ module.exports = async function botInfo(userOrMember) {
 
     // Create a new object
     const botInfoObject = {
-        name: clientUser.username, // The name of the bot
+        username: clientUser.username, // The name of the bot
         tag: clientUser.tag, // The tag of the bot
         id: clientUser.id, // The id of the bot
         globalName: clientUser.displayName, // The global name of the bot

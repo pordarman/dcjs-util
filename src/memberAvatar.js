@@ -16,5 +16,5 @@ module.exports = function memberAvatar(member) {
     if (!member.avatar) return null;
 
     // If the member has a gif avatar, return the gif avatar
-    return member.avatar.startsWith("a_") ? member.avatarURL({ format: "gif", dynamic: true, size: 4096 }) : member.avatarURL({ format: "png", dynamic: true, size: 4096 });
+    return member.avatar.startsWith("a_") ? member.avatarURL({ extension:"gif", forceStatic:true, size: 4096 }) : member.avatarURL({ extension:"png", forceStatic:true, size: 4096 });
 }

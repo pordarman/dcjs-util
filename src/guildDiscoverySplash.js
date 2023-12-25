@@ -16,5 +16,5 @@ module.exports =  function guildSplash(guild) {
     if (!guild.discoverySplash) return null;
 
     // If the guild has a gif discoverySplash, return the gif discoverySplash
-    return guild.discoverySplash.startsWith("a_") ? guild.discoverySplashURL({ format: "gif", dynamic: true, size: 4096 }) : guild.discoverySplashURL({ format: "png", dynamic: true, size: 4096 });
+    return guild.discoverySplash.startsWith("a_") ? guild.discoverySplashURL({ extension:"gif", forceStatic:true, size: 4096 }) : guild.discoverySplashURL({ extension:"png", forceStatic:true, size: 4096 });
 }

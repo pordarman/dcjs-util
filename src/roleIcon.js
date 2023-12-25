@@ -16,5 +16,5 @@ module.exports =  function roleSplash(role) {
     if (!role.icon) return null;
 
     // If the role has a gif icon, return the gif icon
-    return role.icon.startsWith("a_") ? role.iconURL({ format: "gif", dynamic: true, size: 4096 }) : role.iconURL({ format: "png", dynamic: true, size: 4096 });
+    return role.icon.startsWith("a_") ? role.iconURL({ extension:"gif", forceStatic:true, size: 4096 }) : role.iconURL({ extension:"png", forceStatic:true, size: 4096 });
 }
