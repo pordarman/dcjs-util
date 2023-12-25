@@ -2,11 +2,12 @@ const {
     TextChannel,
     Message
 } = require("discord.js");
+const waitMessages = require("./waitMessages");
 
 /**
  * @typedef {Object} waitMessageObject
  * @property {() => Boolean} filter - The filter function
- * @property {Number} time - The time to wait (in milliseconds)
+ * @property {Number} time - The time to wait (in milliseconds) (default: 1 minute)
  */
 
 /**
@@ -20,20 +21,11 @@ module.exports = async function waitFirstMessage(channel, {
     time = 60 * 1000, // 1 minute
 } = {}) {
 
-    // Check the accuracy of the value in the entered parameters
-    if (!(channel instanceof TextChannel)) throw new TypeError("The entered \"channel\" value must be a TextChannel value!");
-    if (typeof filter !== "function") throw new TypeError("The entered \"filter\" value must be a Function value!");
-    if (typeof time !== "number") throw new TypeError("The entered \"time\" value must be a Number value!");
-    if (time < 0) throw new RangeError("The entered \"time\" must be a positive Number value!");
-
-    // Wait for the first message sent by a user
-    const messageCollection = await channel.awaitMessages({
+    const messages = await waitMessages(channel, {
         filter,
-        max: 1,
         time,
-        errors: ["time"]
-    }).catch(() => { });
+        max: 1
+    });
 
-    // Check if the message collection is empty
-    return messageCollection ? messageCollection.first() : null;
+   return messages.first() || null;
 }
