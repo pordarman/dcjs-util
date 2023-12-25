@@ -22,7 +22,10 @@ const roleIcon = require("./roleIcon.js");
  * @property {Boolean} mentionable - Whether the role is mentionable
  * @property {Guild} guild - The guild of the role
  * @property {Number} createdTimestamp - The timestamp the role was created at
- * @property {Collection<String, GuildMember>} members - The members that have the role
+ * @property {Collection<String, GuildMember>} allMembers - The all members that have the role
+ * @property {Collection<String, GuildMember>} members - The members that have the role (without bots)
+ * @property {Collection<String, GuildMember>} bots - The bots that have the role
+ * 
  */
 
 /**
@@ -50,16 +53,24 @@ module.exports = async function roleInfo(role) {
         deleted: role.deleted, // Whether the role is deleted
         guild: role.guild, // The guild of the role
         createdTimestamp: role.createdTimestamp, // The timestamp the role was created at
-        members: new Collection(), // The members that have the role
+        allMembers: new Collection(), // The all members that have the role
+        members: new Collection(), // The members that have the role (without bots)
+        bots: new Collection() // The bots that have the role
     };
 
-    const allMembers = await fetchAllMembers(role.guild);
+    const getAllMembers = await fetchAllMembers(role.guild);
 
     // Loop through all members
-    allMembers.forEach(member => {
+    getAllMembers.forEach(member => {
 
         // If the member has the role
-        if (member["_roles"].includes(role.id)) roleInfoObject.members.set(member.id, member);
+        if (member["_roles"].includes(role.id)) {
+            roleInfoObject.allMembers.set(member.id, member);
+
+            // If the member is a bot
+            if (member.user.bot) roleInfoObject.bots.set(member.id, member);
+            else roleInfoObject.members.set(member.id, member);
+        }
     });
 
     return roleInfoObject;

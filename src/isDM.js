@@ -7,6 +7,6 @@ const {
  * @param {Message} message - Message to check
  * @returns {Boolean}
  */
-module.exports = function isGuild(message) {
+module.exports = function isDM(message) {
     return !Boolean(message.guildId);
 }

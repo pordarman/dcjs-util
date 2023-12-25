@@ -48,7 +48,7 @@ const allPermissions = new Set([
     "UseSoundboard",
     "UseExternalSounds",
     "SendVoiceMessages"
-])
+]);
 
 /**
  * Checks if the member has the permission
