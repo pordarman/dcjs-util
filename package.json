@@ -1,6 +1,6 @@
 {
   "name": "dcjs-util",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Contains necessary shortcuts for discord.js",
   "main": "index.js",
   "scripts": {
