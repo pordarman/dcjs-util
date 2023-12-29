@@ -25,8 +25,8 @@ try {
     }).catch(() => { });
 } catch (_) { }
 
-// If discord version is not v14, throw error
-if (Discord.version.split('.')[0] !== "14") throw new Error("Discord.js v14 required");
+// If discord version is not v14.14.0, throw error
+if (Discord.version !== "14.14.0") throw new Error("discord.js version 14.14.0 is required. Install it using: npm i discord.js@14.14.0");
 
 // Load all commands
 module.exports = {
@@ -81,6 +81,8 @@ module.exports = {
     isGuild: require("./src/isGuild"),
     isMember: require("./src/isMember"),
     isUser: require("./src/isUser"),
+    length: require("./src/length"),
+    letterCounter: require("./src/letterCounter"),
     memberAvatar: require("./src/memberAvatar"),
     memberDisplayAvatar: require("./src/memberDisplayAvatar"),
     memberDisplayColor: require("./src/memberDisplayColor"),
@@ -111,4 +113,5 @@ module.exports = {
     waitAndSendMessage: require("./src/waitAndSendMessage"),
     waitFirstMessage: require("./src/waitFirstMessage"),
     waitMessages: require("./src/waitMessages"),
+    wordCount: require("./src/wordCount"),
 }
