@@ -25,9 +25,6 @@ try {
     }).catch(() => { });
 } catch (_) { }
 
-// If discord version is not v14.14.0, throw error
-if (Discord.version !== "14.14.0") throw new Error("discord.js version 14.14.0 is required. Install it using: npm i discord.js@14.14.0");
-
 // Load all commands
 module.exports = {
     addReaction: require("./src/addReaction"),

@@ -7,7 +7,7 @@ const {
  * @param {Role} role - The role to get the icon of
  * @returns {String|null}
  */
-module.exports =  function roleSplash(role) {
+module.exports = function roleSplash(role) {
 
     // Check the accuracy of the value in the entered parameters
     if (!(role instanceof Role)) throw new TypeError("The entered \"role\" value must be a Role value!");
@@ -16,5 +16,5 @@ module.exports =  function roleSplash(role) {
     if (!role.icon) return null;
 
     // If the role has a gif icon, return the gif icon
-    return role.icon.startsWith("a_") ? role.iconURL({ extension:"gif", forceStatic:true, size: 4096 }) : role.iconURL({ extension:"png", forceStatic:true, size: 4096 });
+    return role.iconURL({ extension: "png", forceStatic: true, size: 4096 });
 }

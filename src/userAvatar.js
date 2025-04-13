@@ -7,7 +7,7 @@ const {
  * @param {User} user - The user to get the avatar of
  * @returns {String|null}
  */
-module.exports =  function userAvatar(user) {
+module.exports = function userAvatar(user) {
 
     // Check the accuracy of the value in the entered parameters
     if (!(user instanceof User)) throw new TypeError("The entered \"user\" value must be a User value!");
@@ -16,5 +16,5 @@ module.exports =  function userAvatar(user) {
     if (!user.avatar) return null;
 
     // If the user has a gif avatar, return the gif avatar
-    return user.avatar.startsWith("a_") ? user.avatarURL({ extension:"gif", forceStatic:true, size: 4096 }) : user.avatarURL({ extension:"png", forceStatic:true, size: 4096 });
+    return user.avatarURL({ extension: "png", forceStatic: true, size: 4096 });
 }

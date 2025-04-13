@@ -7,7 +7,7 @@ const {
  * @param {User} user - The user to get the banner of
  * @returns {String|null}
  */
-module.exports =  function userBanner(user) {
+module.exports = function userBanner(user) {
 
     // Check the accuracy of the value in the entered parameters
     if (!(user instanceof User)) throw new TypeError("The entered \"user\" value must be a User value!");
@@ -16,5 +16,5 @@ module.exports =  function userBanner(user) {
     if (!user.banner) return null;
 
     // If the user has a gif banner, return the gif banner
-    return user.banner.startsWith("a_") ? user.bannerURL({ extension:"gif", forceStatic:true, size: 4096 }) : user.bannerURL({ extension:"png", forceStatic:true, size: 4096 });
+    return user.bannerURL({ extension: "png", forceStatic: true, size: 4096 });
 }

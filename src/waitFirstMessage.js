@@ -27,5 +27,5 @@ module.exports = async function waitFirstMessage(channel, {
         max: 1
     });
 
-   return messages.first() || null;
+    return messages.first() || null;
 }

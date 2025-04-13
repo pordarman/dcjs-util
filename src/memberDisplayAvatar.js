@@ -12,5 +12,5 @@ const memberAvatar = require("./memberAvatar");
 module.exports = function memberDisplayAvatar(member) {
 
     return memberAvatar(member) ?? userDisplayAvatar(member.user);
-    
+
 }
